@@ -1,0 +1,54 @@
+networks:
+  myapp:
+    driver: bridge #neweorks para comunicaçãoes entre containers
+
+services:
+  php:
+    image: php:8.3-apache # imagem importada (com Apache, para servir a aplicação na porta 80)
+    container_name: myapp_php
+    ports:
+      - "8000:80" # porta
+    networks:
+      - myapp
+    depends_on: # Depedencias
+      - db
+    volumes:
+      - ./:/var/www/html # O projeto é o volume
+    command: > # Comando para instalar extenções
+      bash -c "docker-php-ext-install mysqli pdo pdo_mysql &&
+               php -r \"copy('https://getcomposer.org/installer', 'composer-setup.php');\" &&
+               php composer-setup.php --install-dir=/usr/local/bin --filename=composer &&
+               apache2-foreground"
+    
+  db:
+    image: mysql:8.4 # imagem do banco
+    container_name: myapp_mysql
+    restart: unless-stopped # reinicia o contêiner automaticamente em falhas ou reinicializações do sistema
+    networks: # network
+      - myapp
+    environment: # Aquivos de ambienten (.env)
+      MYSQL_ROOT_PASSWORD: "root@250270" # senha do usuário root (fixo, não dá pra renomear)
+      MYSQL_USER: "presidente" # usuário comum criado automaticamente
+      MYSQL_DATABASE: "atacadao" # banco criado automaticamente, com permissão total pro MYSQL_USER
+      MYSQL_PASSWORD: "inferno" # senha do usuário comum (MYSQL_USER)
+    ports:
+      - "3306:3306" # porta do banco
+    volumes:
+      - mysql_data:/var/lib/mysql # Volume onde vai ficar que é mysql
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    networks: # network
+      - myapp
+    restart: unless-stopped
+    ports:
+      - "8001:80" # porta do myadmin
+    environment:
+      PMA_HOST: db # nome do serviço ou endereço onde o banco de dados está rodando
+      PMA_PORT: 3306
+    depends_on:
+      - db # depedencias
+  
+volumes:
+  mysql_data: #Nome do volume
