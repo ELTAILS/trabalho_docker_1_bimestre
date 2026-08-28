@@ -1,3 +1,9 @@
 <?php
 
-echo "Aqui é o front-end, lembrado que o front-end é feito em php";
+require_once __DIR__ . "/../vendor/autoload.php";
+
+use App\db\db;
+
+$controler = new db();
+
+echo $controler->index();
