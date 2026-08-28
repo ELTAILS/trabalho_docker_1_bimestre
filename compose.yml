@@ -16,8 +16,8 @@ services:
       - ./:/var/www/html # O projeto é o volume
     command: > # Comando para instalar extenções
       bash -c "docker-php-ext-install mysqli pdo pdo_mysql &&
-               php -r \"copy('https://getcomposer.org/installer', 'composer-setup.php');\" &&
-               php composer-setup.php --install-dir=/usr/local/bin --filename=composer &&
+               a2enmod rewrite &&
+               sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf &&
                apache2-foreground"
     
   db:

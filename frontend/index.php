@@ -1,9 +1,19 @@
 <?php
 
-require_once __DIR__ . "/../vendor/autoload.php";
+try {
+    require_once __DIR__ . "/../vendor/autoload.php";
+    echo "deu bom";
+} catch (Exception $e){
+    echo "deu bosta" . $e->getMessage();
+}
 
-use App\db\db;
+$url = trim($_GET['url'] ?? '/');
 
-$controler = new db();
-
-echo $controler->index();
+switch($url){
+    case '/':
+        echo "pagina inicial";
+    break;
+    default:
+        echo "pagina erro";
+    break;
+}
