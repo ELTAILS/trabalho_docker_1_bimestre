@@ -4,7 +4,7 @@ namespace App\Database;
 
 use PDO;
 
-final class Database
+final class Conexao
 {
     private string $host;
     private string $databaseName = 'atacadao';
