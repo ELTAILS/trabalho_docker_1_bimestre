@@ -12,6 +12,7 @@ $produtos = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listagem de Produtos</title>
     <link rel="stylesheet" href="./css/listar.css">
+    
 </head>
 <body>
     <h1>Lista de Produtos</h1>
