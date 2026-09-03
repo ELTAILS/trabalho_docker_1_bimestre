@@ -25,17 +25,17 @@ class ProdutoController
      */
     public function render(string $page, string $titulo = "Atacadão", array $data = []): void
     {
-        // $title = $titulo;
-        // extract($data);
-        // Header
-        // Pagina
-        // footer
+        $title = $titulo;
+        $dados = extract($data);
+        require_once __DIR__ . '/../../frontend/componentes/header.php';
+        require_once __DIR__ . "/../../frontend/pages/$page.php";
+        require_once __DIR__ . '/../../frontend/componentes/footer.php';
     }
 
     // Paginas do produto
     public function index(): void
     {
-        // Pagina para listar todos os produtos
+        $this->render('home','Atacadão Infernal');
     }
 
     public function show(int $id): void
