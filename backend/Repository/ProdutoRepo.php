@@ -52,4 +52,14 @@ class ProdutoRepo
         $stmt->execute();
     }
 
+    // Busca um produto pelo ID
+    public function produtoById(int $id): ?array
+    {
+        $sql = "SELECT * FROM produtos WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC) ?: null;
+    }
+
 }
