@@ -11,7 +11,8 @@ $url = trim($_GET['url'] ?? '/');
 
 switch($url){
     case '/':
-        echo "pagina inicial";
+    case 'produtos':
+        require __DIR__ . "/produtos/listar.php";
     break;
     default:
         echo "pagina erro";
