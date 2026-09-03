@@ -49,7 +49,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link px-3" href="produtos.php">
+                            <a class="nav-link px-3"  href="pages/produtos.php">
                                 <i class="bi bi-box-seam me-1"></i>
                                 Produtos
                             </a>

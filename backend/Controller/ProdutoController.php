@@ -45,7 +45,7 @@ class ProdutoController
 
     public function create(): void
     {
-        // Pagina para criar um novo produto
+        $this->render('produtos','Atacadão Infernal');
     }
 
     public function update(int $id): void
