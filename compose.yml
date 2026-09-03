@@ -12,6 +12,8 @@ services:
       - myapp
     depends_on:
       - db
+    environment:
+      DB_HOST: db
     volumes:
       - ./:/var/www/html
     command: >
@@ -33,6 +35,7 @@ services:
     networks:
       - myapp
     environment:
+      # Configuração do MySQL
       MYSQL_ROOT_PASSWORD: "root@250270"
       MYSQL_USER: "presidente"
       MYSQL_DATABASE: "atacadao"

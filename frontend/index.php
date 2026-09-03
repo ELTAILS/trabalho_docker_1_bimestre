@@ -1,10 +1,13 @@
 <?php
 
+require_once __DIR__ . "/../vendor/autoload.php";
+
 try {
-    require_once __DIR__ . "/../vendor/autoload.php";
-    echo "deu bom";
-} catch (Exception $e){
-    echo "deu bosta" . $e->getMessage();
+    $database = new \App\Database\Database();
+    $pdo = $database->connect();
+    echo "Conexão bem-sucedida!";
+} catch (\Exception $e) {
+    echo "Erro: " . $e->getMessage();
 }
 
 $url = trim($_GET['url'] ?? '/');
