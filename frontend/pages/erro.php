@@ -65,8 +65,8 @@
 				Vamos levar você para um lugar conhecido?
 			</p>
 			<div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
-				<a href="?url=produtos" class="btn btn-vermelho px-4">Ir para a home</a>
-				<a href="?url=produtos/novo" class="btn btn-vermelho px-4">Criar produto</a>
+				<a href="<?= BASE_URL ?>" class="btn btn-vermelho px-4">Ir para a home</a>
+				<a href="<?= BASE_URL ?>/create" class="btn btn-vermelho px-4">Criar produto</a>
 			</div>
 		</section>
 	</main>

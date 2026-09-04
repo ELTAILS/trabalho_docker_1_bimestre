@@ -1,0 +1,1 @@
+aqui fica o form para cadastrar um produto, ele deve redirecionar para a rota /store do produto, que vai chamar o metodo store do ProdutoController, que vai chamar o metodo create do ProdutoService, que vai chamar o metodo create do ProdutoRepository, que vai inserir o produto no banco de dados.

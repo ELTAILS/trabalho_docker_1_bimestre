@@ -1,6 +1,6 @@
 RewriteEngine On
 
-RewriteBase /trabalho_docker_1_bimestre/frontend
+RewriteBase /frontend
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

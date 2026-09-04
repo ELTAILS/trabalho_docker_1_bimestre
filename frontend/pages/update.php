@@ -1,0 +1,1 @@
+aqui fica a pagina de update do produto, os dados vai ser enviado para /store, e o metodo store vai ser chamado para salvar os dados no banco de dados.

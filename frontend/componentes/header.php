@@ -49,30 +49,16 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link px-3"  href="pages/produtos.php">
+                            <a class="nav-link px-3"  href="<?= BASE_URL ?>/read">
                                 <i class="bi bi-box-seam me-1"></i>
                                 Produtos
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link px-3" href="categorias.php">
-                                <i class="bi bi-tags me-1"></i>
-                                Categorias
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link px-3" href="clientes.php">
-                                <i class="bi bi-people me-1"></i>
-                                Clientes
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link px-3" href="vendas.php">
+                            <a class="nav-link px-3" href="<?= BASE_URL ?>/create">
                                 <i class="bi bi-cart3 me-1"></i>
-                                Vendas
+                                Criar produto
                             </a>
                         </li>
 

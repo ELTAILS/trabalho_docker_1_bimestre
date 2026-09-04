@@ -38,35 +38,54 @@ class ProdutoController
         $this->render('home','atacadão infernal');
     }
 
-    public function show(int $id): void
+    public function read(): void
+    {
+        $this->render('produtos','Atacadão Infernal');
+    }
+
+    public function show(): void
     {
         // Pagina para mostrar detalhes de um produto específico
     }
 
     public function create(): void
     {
-        $this->render('produtos','Atacadão Infernal');
+        $this->render('create','Atacadão Infernal');
     }
 
-    public function update(int $id): void
+    public function update(): void
     {
-        // Pagina para atualizar um produto existente
+        $this->render('update','Atualizar Produto');
     }
 
     // Redirecionando a Logica de negocio
 
-    public function store(string $nome, int $quantidade, string $marca, string $validade, float $preco): void
+    public function store(): void
     {
+        $nome = $_POST['nome'] ?? '';
+        $quantidade = $_POST['quantidade'] ?? 0;
+        $marca = $_POST['marca'] ?? '';
+        $validade = $_POST['validade'] ?? '';
+        $preco = $_POST['preco'] ?? 0.0;
+
         $this->service->create($nome, $quantidade, $marca, $validade, $preco);
     }
 
-    public function edit(int $id, string $nome, int $quantidade, string $marca, string $validade, float $preco): void
+    public function edit(): void
     {
+        $id = $_POST['id'] ?? 0;
+        $nome = $_POST['nome'] ?? '';
+        $quantidade = $_POST['quantidade'] ?? 0;
+        $marca = $_POST['marca'] ?? '';
+        $validade = $_POST['validade'] ?? '';
+        $preco = $_POST['preco'] ?? 0.0;
+
         $this->service->update($id, $nome, $quantidade, $marca, $validade, $preco);
     }
 
-    public function delete(int $id): void
+    public function delete(): void
     {
+        $id = $_POST['id'] ?? 0;
         $this->service->delete($id);
     }
 }
