@@ -35,7 +35,8 @@ class ProdutoController
     // Paginas do produto
     public function index(): void
     {
-        $this->render('home','Atacadão infernal');
+        $produtos = $this->service->read() ?? [];
+        $this->render('home', 'Atacadão infernal', ['produtos' => $produtos]);
     }
 
     public function read(): void

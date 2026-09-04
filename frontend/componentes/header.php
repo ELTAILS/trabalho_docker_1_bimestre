@@ -50,22 +50,19 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link px-3"  href="<?= BASE_URL ?>/read">
+                            <a class="nav-link px-3" href="<?= BASE_URL ?>/read">
                                 <i class="bi bi-box-seam me-1"></i>
                                 Produtos
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link px-3" href="<?= BASE_URL ?>/sobre">
                                 <i class="bi bi-info-circle me-1"></i>
-                                Sobre nois
+                                Sobre nós
                             </a>
                         </li>
-
                     </ul>
                 </div>
-
             </div>
         </nav>
 
