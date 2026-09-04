@@ -30,7 +30,7 @@ docker compose up -d
     1 - abra a pasta backend depois Database e copie o produtos.sql
     2 - abra o localhost:8001 e coloque as credinciais validas
     3 - abra o sql e cole o produtos.sql e execute
-    4 - visualize os dados na tabela produtos
+    4 - Abra o localhost:8000 e veja o projeto funcionando
 
 ## Sobre o projeto e suas tecnologias
 O Atacadão do Inferno é um sistema web para cadastro e controle de produtos de um mercado. Com ele, é possível listar produtos, consultar detalhes, cadastrar novos itens, atualizar informações e excluir produtos.
