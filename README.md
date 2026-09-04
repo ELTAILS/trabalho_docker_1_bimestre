@@ -8,9 +8,12 @@
 git clone https://github.com/ELTAILS/trabalho_docker_1_bimestre
 ```
 
-2 - entre na pasta do projeto
+2 - entre na pasta do projeto e abra no vscode
 ```bash
 cd trabalho_docker_1_bimestre
+```
+```bash
+code .
 ```
 
 3 - instale as dependências
