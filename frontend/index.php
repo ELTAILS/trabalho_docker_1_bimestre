@@ -14,6 +14,9 @@ switch($url){
     case '/':
         $controller->index();
         break;
+    case 'sobre':
+        $controller->sobre();
+        break;
     case 'read':
         $controller->read();
         break;

@@ -57,9 +57,9 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link px-3" href="<?= BASE_URL ?>/create">
-                                <i class="bi bi-cart3 me-1"></i>
-                                Criar produto
+                            <a class="nav-link px-3" href="<?= BASE_URL ?>/sobre">
+                                <i class="bi bi-info-circle me-1"></i>
+                                Sobre nois
                             </a>
                         </li>
 

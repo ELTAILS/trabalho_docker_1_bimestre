@@ -60,6 +60,11 @@ class ProdutoController
         $this->render('update','Atualizar Produto');
     }
 
+    public function sobre(): void
+    {
+        $this->render('sobre','Sobre Nós');
+    }
+
     // Redirecionando a Logica de negocio
 
     public function store(): void
@@ -71,6 +76,8 @@ class ProdutoController
         $preco = $_POST['preco'] ?? 0.0;
 
         $this->service->create($nome, $quantidade, $marca, $validade, $preco);
+        header('Location: ' . BASE_URL . '/read');
+        exit;
     }
 
     public function edit(): void

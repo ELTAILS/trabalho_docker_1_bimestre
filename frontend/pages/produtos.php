@@ -6,7 +6,7 @@
         </p>
     </div>
 
-    <a href="?url=produtos/novo" class="btn btn-danger">
+    <a href="<?= BASE_URL ?>/create" class="btn btn-danger">
         <i class="bi bi-plus-lg me-1"></i>
         Novo Produto
     </a>
