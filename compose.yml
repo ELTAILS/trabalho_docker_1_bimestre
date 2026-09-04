@@ -25,13 +25,6 @@ services:
                sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf &&
                apache2-foreground"
 
-  # Composer (gerenciador de dependências PHP)
-  composer:
-    image: composer:latest  # Imagem do Composer
-    working_dir: /var/www/html  # Diretório de trabalho
-    volumes:
-      - ./:/var/www/html  # Compartilha pasta local com o container
-
   # Banco de dados MySQL
   db:
     image: mysql:8.4  # Imagem MySQL versão 8.4
