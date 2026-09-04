@@ -51,18 +51,6 @@ O objetivo é praticar a criação de uma aplicação CRUD usando a arquitetura 
 
 A separação em camadas deixa o código mais organizado: cada parte do sistema tem uma responsabilidade e pode ser alterada com mais facilidade.
 
-## Fluxo do projeto
-
-O sistema segue este fluxo:
-
-1. O usuário acessa uma página pelo navegador.
-2. O arquivo `frontend/index.php` identifica a rota solicitada.
-3. O `ProdutoController` recebe a requisição e escolhe a ação correta.
-4. O `ProdutoService` aplica as regras e valida os dados enviados.
-5. O `ProdutoRepo` executa as operações no banco de dados MySQL.
-6. O resultado volta para o controller.
-7. O controller envia os dados para a página PHP correspondente, que monta a tela para o usuário.
-
 ### Organização MVC
 
 ```text
