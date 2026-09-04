@@ -47,7 +47,13 @@ class ProdutoController
     public function show(): void
     {
         $produto = $this->service->produtoById($_GET['id'] ?? 0);
-        $this->render('produto','Detalhes do Produto', ['produto' => $produto]);
+
+        if(!isset($produto)) {
+            header('Location: ' . BASE_URL . '/read');
+            exit;
+        }
+
+        $this->render('show','Detalhes do Produto', ['produto' => $produto]);
     }
 
     public function create(): void
@@ -57,7 +63,14 @@ class ProdutoController
 
     public function update(): void
     {
-        $this->render('update','Atualizar Produto');
+        $produto = $this->service->produtoById($_GET['id'] ?? 0);
+
+        if(!isset($produto)) {
+            header('Location: ' . BASE_URL . '/read');
+            exit;
+        }
+
+        $this->render('update','Atualizar Produto', ['produto' => $produto]);
     }
 
     public function sobre(): void

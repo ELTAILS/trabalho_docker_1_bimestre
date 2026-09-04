@@ -21,7 +21,7 @@
             </span>
 
             <span class="badge bg-danger">
-                <?= count($produtos) ?> produtos
+                <?= count($produtos) ?? 0 ?> produtos
             </span>
         </div>
     </div>
@@ -46,12 +46,12 @@
                 <tbody>
 
                     <?php if(isset($produtos)): ?>
-                        <?php foreach ($produtos as $produto) : ?>
+                        <?php $id = 1; foreach ($produtos as $produto) : ?>
 
                             <tr>
 
                                 <td class="ps-4 fw-bold text-secondary">
-                                    #<?= $produto['id'] ?>
+                                    #<?= $id++ ?>
                                 </td>
 
                                 <td>
@@ -88,7 +88,12 @@
 
                                     <div class="btn-group" role="group">
 
-                                        <a href="<?= BASE_URL ?>/edit&id=<?= $produto['id'] ?>"
+                                        <a href="<?= BASE_URL ?>/show&id=<?= $produto['id'] ?>"
+                                            class="btn btn-sm btn-outline-primary" title="Mostrar detalhes">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+
+                                        <a href="<?= BASE_URL ?>/update&id=<?= $produto['id'] ?>"
                                             class="btn btn-sm btn-outline-primary" title="Editar produto">
                                             <i class="bi bi-pencil"></i>
                                         </a>
@@ -98,6 +103,7 @@
                                             onclick="return confirm('Tem certeza que deseja excluir este produto?')">
                                             <i class="bi bi-trash"></i>
                                         </a>
+                                        
 
                                     </div>
 
