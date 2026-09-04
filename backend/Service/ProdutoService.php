@@ -49,4 +49,10 @@ class ProdutoService
         $this->repo->delete($id);
     }
 
+    // regra para buscar o produto pelo id
+    public function produtoById(int $id): ?array
+    {
+        return $this->repo->produtoById($id);
+    }
+
 }

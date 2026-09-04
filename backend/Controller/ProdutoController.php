@@ -35,22 +35,23 @@ class ProdutoController
     // Paginas do produto
     public function index(): void
     {
-        $this->render('home','atacadão infernal');
+        $this->render('home','Atacadão infernal');
     }
 
     public function read(): void
     {
-        $this->render('produtos','Atacadão Infernal');
+        $this->render('produtos','Nossos Produtos');
     }
 
     public function show(): void
     {
-        // Pagina para mostrar detalhes de um produto específico
+        $produto = $this->service->produtoById($_GET['id'] ?? 0);
+        $this->render('produto','Detalhes do Produto', ['produto' => $produto]);
     }
 
     public function create(): void
     {
-        $this->render('create','Atacadão Infernal');
+        $this->render('create','Criar um novo Produto');
     }
 
     public function update(): void
@@ -73,7 +74,7 @@ class ProdutoController
 
     public function edit(): void
     {
-        $id = $_POST['id'] ?? 0;
+        $id = $_GET['id'] ?? 0;
         $nome = $_POST['nome'] ?? '';
         $quantidade = $_POST['quantidade'] ?? 0;
         $marca = $_POST['marca'] ?? '';
@@ -85,7 +86,7 @@ class ProdutoController
 
     public function delete(): void
     {
-        $id = $_POST['id'] ?? 0;
+        $id = $_GET['id'] ?? 0;
         $this->service->delete($id);
     }
 }
