@@ -26,7 +26,7 @@ class ProdutoController
     public function render(string $page, string $titulo = "Atacadão", array $data = []): void
     {
         $title = $titulo;
-        $dados = extract($data);
+        extract($data);
         require_once __DIR__ . '/../../frontend/componentes/header.php';
         require_once __DIR__ . "/../../frontend/pages/$page.php";
         require_once __DIR__ . '/../../frontend/componentes/footer.php';
@@ -40,7 +40,8 @@ class ProdutoController
 
     public function read(): void
     {
-        $this->render('produtos','Nossos Produtos');
+        $produtos = $this->service->read();
+        $this->render('produtos','Nossos Produtos', ['produtos' => $produtos]);
     }
 
     public function show(): void
@@ -82,11 +83,15 @@ class ProdutoController
         $preco = $_POST['preco'] ?? 0.0;
 
         $this->service->update($id, $nome, $quantidade, $marca, $validade, $preco);
+        header('Location: ' . BASE_URL . '/read');
+        exit;
     }
 
     public function delete(): void
     {
         $id = $_GET['id'] ?? 0;
         $this->service->delete($id);
+        header('Location: ' . BASE_URL . '/read');
+        exit;
     }
 }

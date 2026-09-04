@@ -1,4 +1,3 @@
-<?php $produtos = [ ['id' => 1, 'nome' => 'Arroz', 'quantidade' => 50, 'marca' => 'Tio João', 'validade' => '2026-12-01', 'preco' => 25.90], ['id' => 2, 'nome' => 'Feijão', 'quantidade' => 30, 'marca' => 'Camil', 'validade' => '2026-10-15', 'preco' => 8.50], ['id' => 3, 'nome' => 'Óleo de Soja', 'quantidade' => 20, 'marca' => 'Liza', 'validade' => '2026-08-20', 'preco' => 7.30], ];?>
 <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
     <div>
         <h1 class="fw-bold mb-1"> <i class="bi bi-box-seam text-danger"></i> Produtos </h1>
@@ -46,66 +45,74 @@
 
                 <tbody>
 
-                    <?php foreach ($produtos as $produto) : ?>
+                    <?php if(isset($produtos)): ?>
+                        <?php foreach ($produtos as $produto) : ?>
 
-                    <tr>
+                            <tr>
 
-                        <td class="ps-4 fw-bold text-secondary">
-                            #<?= $produto['id'] ?>
-                        </td>
+                                <td class="ps-4 fw-bold text-secondary">
+                                    #<?= $produto['id'] ?>
+                                </td>
 
-                        <td>
-                            <div class="d-flex align-items-center gap-2">
-                                <div class="bg-danger bg-opacity-10 text-danger rounded p-2">
-                                    <i class="bi bi-box-seam"></i>
-                                </div>
+                                <td>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="bg-danger bg-opacity-10 text-danger rounded p-2">
+                                            <i class="bi bi-box-seam"></i>
+                                        </div>
 
-                                <span class="fw-semibold">
-                                    <?= $produto['nome'] ?>
-                                </span>
-                            </div>
-                        </td>
+                                        <span class="fw-semibold">
+                                            <?= $produto['nome'] ?>
+                                        </span>
+                                    </div>
+                                </td>
 
-                        <td>
-                            <span class="badge bg-secondary">
-                                <?= $produto['quantidade'] ?> unidades
-                            </span>
-                        </td>
+                                <td>
+                                    <span class="badge bg-secondary">
+                                        <?= $produto['quantidade'] ?> unidades
+                                    </span>
+                                </td>
 
-                        <td>
-                            <?= $produto['marca'] ?>
-                        </td>
+                                <td>
+                                    <?= $produto['marca'] ?>
+                                </td>
 
-                        <td>
-                            <?= date('d/m/Y', strtotime($produto['validade'])) ?>
-                        </td>
+                                <td>
+                                    <?= date('d/m/Y', strtotime($produto['validade'])) ?>
+                                </td>
 
-                        <td class="fw-bold text-success">
-                            R$ <?= number_format($produto['preco'], 2, ',', '.') ?>
-                        </td>
+                                <td class="fw-bold text-success">
+                                    R$ <?= number_format($produto['preco'], 2, ',', '.') ?>
+                                </td>
 
-                        <td class="text-center">
+                                <td class="text-center">
 
-                            <div class="btn-group" role="group">
+                                    <div class="btn-group" role="group">
 
-                                <a href="?url=produtos/editar&id=<?= $produto['id'] ?>"
-                                    class="btn btn-sm btn-outline-primary" title="Editar produto">
-                                    <i class="bi bi-pencil"></i>
-                                </a>
+                                        <a href="<?= BASE_URL ?>/edit&id=<?= $produto['id'] ?>"
+                                            class="btn btn-sm btn-outline-primary" title="Editar produto">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
 
-                                <a href="?url=produtos/excluir&id=<?= $produto['id'] ?>"
-                                    class="btn btn-sm btn-outline-danger" title="Excluir produto"
-                                    onclick="return confirm('Tem certeza que deseja excluir este produto?')">
-                                    <i class="bi bi-trash"></i>
-                                </a>
+                                        <a href="<?= BASE_URL ?>/delete&id=<?= $produto['id'] ?>"
+                                            class="btn btn-sm btn-outline-danger" title="Excluir produto"
+                                            onclick="return confirm('Tem certeza que deseja excluir este produto?')">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
 
-                            </div>
+                                    </div>
 
-                        </td>
+                                </td>
 
-                    </tr>
+                            </tr>
 
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="7" class="text-center text-muted">
+                                Nenhum produto cadastrado.
+                            </td>
+                        </tr>
+                    <?php endif; ?>
 
                 </tbody>
 
